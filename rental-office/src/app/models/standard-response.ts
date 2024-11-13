@@ -1,5 +1,3 @@
-// export interface StandardResponse {
-// }
 export interface StandardResponse<T = any> {
   isSuccess: boolean;
   data: T | null;

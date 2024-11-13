@@ -1,6 +1,3 @@
-// export interface Map {
-// }
-
 import { Resource } from "./resource";
 
 export interface Map {

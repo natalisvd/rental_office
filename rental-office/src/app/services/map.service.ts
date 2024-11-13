@@ -11,7 +11,7 @@ import { Map } from '../models/map';
 })
 export class MapService {
 
-  apiUrl: string = `${environment.backendUrl}v1/`;
+  apiUrl: string = `${environment.backendUrl}${environment.apiPrefix}`;
 
   constructor(private http: HttpClient) { }
 
