@@ -17,12 +17,12 @@ export class MapService {
 
   getMapInfoPOST(id: number): Observable<StandardResponse<Map | null>> {
     const requestPayload = { id: id };
-    return this.http.post<StandardResponse<Map | null>>(this.apiUrl + 'getmapinfo', requestPayload);
+    return this.http.post<StandardResponse<Map | null>>(this.apiUrl + 'resource/getmapinfo', requestPayload);
   }
 
   getMapInfo(id: number): Observable<StandardResponse<Map | null>> {
-    const params = new HttpParams().set('id', id.toString());
-    return this.http.get<StandardResponse<Map | null>>(this.apiUrl + 'getmapinfo', { params });
+    // const params = new HttpParams().set('id', id.toString());
+    return this.http.get<StandardResponse<Map | null>>(this.apiUrl + 'resource/getmapinfo/' + id);
   }
 
 }
