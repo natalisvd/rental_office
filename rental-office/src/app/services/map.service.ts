@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs/internal/Observable';
 
 import { StandardResponse } from '../models/standard-response';
@@ -15,9 +15,14 @@ export class MapService {
 
   constructor(private http: HttpClient) { }
 
-  getMapInfo(id: number): Observable<StandardResponse<Map | null>> {
+  getMapInfoPOST(id: number): Observable<StandardResponse<Map | null>> {
     const requestPayload = { id: id };
     return this.http.post<StandardResponse<Map | null>>(this.apiUrl + 'getmapinfo', requestPayload);
+  }
+
+  getMapInfo(id: number): Observable<StandardResponse<Map | null>> {
+    const params = new HttpParams().set('id', id.toString());
+    return this.http.get<StandardResponse<Map | null>>(this.apiUrl + 'getmapinfo', { params });
   }
 
 }

@@ -26,4 +26,12 @@ export class AppComponent {
       }
     })
   }
+  getMapInfoPOST() {
+    this.mapService.getMapInfoPOST(1)
+    .subscribe((res: StandardResponse<Map | null>) => {
+      if(res.isSuccess) {
+        this.map = res.data;
+      }
+    })
+  }
 }
