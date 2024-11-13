@@ -1,3 +1,9 @@
 <H1>{{title}}</H1>
 <input type="text" [(ngModel)]="title">
+
+<div>
+  <h3>map test</h3>
+  <button (click)="getMapInfo()">get map info</button>
+  <pre>{{map}}</pre>
+</div>
 <router-outlet />

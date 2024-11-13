@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { MapService } from './services/map.service';
 
 @Component({
   selector: 'app-root',
@@ -11,4 +12,16 @@ import { FormsModule } from '@angular/forms';
 })
 export class AppComponent {
   title = 'rental-office';
+  map: any;
+
+  constructor(private mapService: MapService) {}
+
+  getMapInfo() {
+    this.mapService.getMapInfo(1)
+    .subscribe(res => {
+      if(res.isSuccess) {
+        this.map = res.data;
+      }
+    })
+  }
 }
