@@ -16,6 +16,14 @@ export class AppComponent {
 
   constructor(private mapService: MapService) {}
 
+  getMapInfoPOST() {
+    this.mapService.getMapInfoPOST(1)
+    .subscribe(res => {
+      if(res.isSuccess) {
+        this.map = res.data;
+      }
+    })
+  }
   getMapInfo() {
     this.mapService.getMapInfo(1)
     .subscribe(res => {
