@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { MapService } from './services/map.service';
+import { Map } from './models/map';
+import { StandardResponse } from './models/standard-response';
 
 @Component({
   selector: 'app-root',
@@ -12,13 +14,13 @@ import { MapService } from './services/map.service';
 })
 export class AppComponent {
   title = 'rental-office';
-  map: any;
+  map: Map | null = null;
 
   constructor(private mapService: MapService) {}
 
   getMapInfo() {
     this.mapService.getMapInfo(1)
-    .subscribe(res => {
+    .subscribe((res: StandardResponse<Map | null>) => {
       if(res.isSuccess) {
         this.map = res.data;
       }
