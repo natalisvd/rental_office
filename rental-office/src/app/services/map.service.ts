@@ -8,7 +8,7 @@ import { Observable } from 'rxjs/internal/Observable';
 })
 export class MapService {
 
-  apiUrl: string = `${environment.backendUrl}/v1/`;
+  apiUrl: string = `${environment.backendUrl}v1/`;
 
   constructor(private http: HttpClient) { }
 
